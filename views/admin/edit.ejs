@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee of The Month</title>
+    <link rel="stylesheet" type="text/css" href="/css/form.css" >
+</head>
+<body>
+
+    <h2 style="text-align: center">Employee of the month</h2>
+    <main>
+        <form style="text-align: center" class="info-form" action="/admin/<% if(editing) { %>edit<% } else {%>add-info<% } %>" method="POST">
+            <div class="form-control">
+                <label for="name">Name</label><br> 
+                <input type="text" style="margin-bottom: 20px"  name="name" id="name" value="<% if(editing) { %><%= info.name %><% } %>">
+            </div>
+            <div class="form-control">
+                <label for="imageUrl"  style="margin-top: 20px">Image URL</label><br>
+                <input type="text" style="margin-bottom: 20px" name="imageUrl" id="imageUrl" value="<% if(editing) { %><%= info.imageUrl %><% } %>">
+            </div>
+            <div class="form-control">
+                <label style="margin-top: 20px"  for="achievement">Achievement</label><br>
+                <textarea   name="achievement" id="achievement" rows="5"><% if(editing) { %><%= info.achievement %><% } %></textarea>
+            </div>
+
+            <% if(editing) { %>
+                <input type="hidden" value="<%= info.id %>" name="infoId">
+            <% } %>
+
+            <input type="button" onclick="location.href='/';" value="First page" />
+            <button style="margin-top: 20px" class="btn" type="submit"><% if(editing) { %>Update Info<% } else { %>Add Info<% } %></button>
+
+        </form>
+    </main>
+</body>
+    </html>

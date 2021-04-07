@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee of The Month</title>
+
+<link rel="stylesheet" href="/ccs/style.css" >
+</head>
+<body>
+    <div class="holder">
+        <% for (let info of infos) { %>
+            <h1 style="text-align: center"> Employee of the month</h1>
+            <div class="avatar">
+                <a href="/admin/edit">
+                <button href="/admin/edit">Update employee</button>
+                </a>
+                <img src="<%= info.imageUrl %>" class="user">
+            </div>
+            <p style="text-align: center" >Name</p>
+            <h1 style="text-align: center"><%= info.name %></h1>
+            <p style="text-align: center">Achievement</p>
+            <h1 style="text-align: center"><%= info.achievement %></h1>
+        <% } %>
+    </div>
+</body>
+
+</html>
